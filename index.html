@@ -20,7 +20,7 @@
   <link rel="icon" href="./static/images/favicon.svg">
 
   <style>
-    /* Unified table styling - fix all issues */
+    /* Unified table styling - fit tables on screen without scrolling */
     .table-container {
       width: 100%;
       margin: 2rem 0;
@@ -29,17 +29,18 @@
     
     .table-container table {
       width: 100%;
-      font-size: 1rem;
+      font-size: 0.9rem; /* Slightly smaller font to fit more content */
       border-collapse: collapse;
       margin: 0;
-      min-width: 100%;
+      table-layout: auto; /* Allow automatic column sizing */
     }
     
     /* Ensure all tables have consistent styling */
     .table {
-      font-size: 1rem !important;
+      font-size: 0.9rem !important;
       width: 100% !important;
       border-collapse: collapse !important;
+      table-layout: auto !important;
     }
     
     /* Remove any Bulma classes that might interfere */
@@ -48,18 +49,36 @@
       max-width: none !important;
     }
     
-    /* Ensure table cells are properly sized */
+    /* Ensure table cells are properly sized and compact */
     .table th,
     .table td {
-      padding: 0.5rem !important;
+      padding: 0.3rem 0.2rem !important; /* Smaller padding to fit more content */
       text-align: center !important;
       border: 1px solid #dbdbdb !important;
+      white-space: nowrap; /* Prevent text wrapping */
+      font-size: 0.85rem; /* Even smaller font for data cells */
+    }
+    
+    /* Make table headers slightly larger for readability */
+    .table th {
+      font-size: 0.9rem !important;
+      font-weight: bold !important;
     }
     
     /* Responsive handling */
     @media (max-width: 768px) {
       .table-container {
         margin: 1rem 0;
+      }
+      
+      .table th,
+      .table td {
+        padding: 0.2rem 0.1rem !important;
+        font-size: 0.75rem !important;
+      }
+      
+      .table th {
+        font-size: 0.8rem !important;
       }
     }
   </style>
@@ -449,10 +468,7 @@
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <a class="icon-link" href="IROS2025___Extra_LERa%20(3).pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/YOUR_REPO" class="external-link">
+      <a class="icon-link" href="https://github.com/AmpiroMax" class="external-link">
         <i class="fab fa-github"></i>
       </a>
     </div>
