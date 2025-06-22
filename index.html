@@ -24,19 +24,32 @@
     .table-container {
       display: flex;
       justify-content: center;
-      overflow-x: auto;
-      margin: 0 -1rem;
+      width: 100%;
+      margin: 1rem 0;
     }
     
     .table-container table {
-      min-width: 100%;
-      max-width: none;
-      margin: 0;
+      width: 100%;
+      font-size: 1rem; /* Ensure consistent font size */
+      border-collapse: collapse;
     }
     
+    /* Ensure tables are fully visible */
+    .table {
+      font-size: 1rem !important;
+      width: 100% !important;
+      max-width: none !important;
+    }
+    
+    /* Responsive table handling */
     @media (max-width: 768px) {
       .table-container {
-        margin: 0 -0.5rem;
+        overflow-x: auto;
+        margin: 0.5rem 0;
+      }
+      
+      .table-container table {
+        min-width: 800px; /* Ensure minimum width for readability */
       }
     }
   </style>
@@ -120,6 +133,12 @@
       <h2 class="subtitle has-text-centered">
         LERa is a robust and adaptable solution for error-aware task execution in robotics.
       </h2>
+      <!-- Illustration of LERa example (figure) -->
+      <div class="has-text-centered" style="margin-top: 2rem;">
+        <!-- The image path should be relative to the site root for web usage -->
+        <img src="images/fig2_example_cr.pdf" alt="LERa Example Figure" style="max-width: 100%; height: auto;">
+        <!-- If PDF is not supported by browser, consider converting to PNG/JPG for web -->
+      </div>
     </div>
   </div>
 </section>
