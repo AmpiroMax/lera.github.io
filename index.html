@@ -79,15 +79,9 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/YOUR_REPO" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/AmpiroMax/LERa?tab=readme-ov-file#-custom-tasks" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=YOUR_VIDEO" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-youtube"></i></span>
-                  <span>Video</span>
                 </a>
               </span>
             </div>
@@ -101,9 +95,6 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4" type="video/mp4">
-      </video>
       <h2 class="subtitle has-text-centered">
         <span class="dnerf">LERa</span> is a robust and adaptable solution for error-aware task execution in robotics.
       </h2>
@@ -119,7 +110,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Large Language Models are increasingly used in robotics for task planning, but their reliance on textual inputs limits their adaptability to real-world changes and failures. To address these challenges, we propose LERa – Look, Explain, Replan – a Visual Language Model-based replanning approach that utilizes visual feedback. Unlike existing methods, LERa requires only a raw RGB image, a natural language instruction, an initial task plan, and failure detection—without additional information such as object detection or predefined conditions that may be unavailable in a given scenario. The replanning process consists of three steps: (i) Look, where LERa generates a scene description and identifies errors; (ii) Explain, where it provides corrective guidance; and (iii) Replan, where it modifies the plan accordingly. LERa is adaptable to various agent architectures and can handle errors from both dynamic scene changes and task execution failures. We evaluate LERa on the newly introduced ALFRED-ChaOS and VirtualHome-ChaOS datasets, achieving a 40% improvement over baselines in dynamic environments. In tabletop manipulation tasks with a predefined probability of task failure within the PyBullet simulator, LERa improves success rates by up to 67%. Further experiments, including real-world trials with a tabletop manipulator robot, confirm LERa’s effectiveness in replanning. We demonstrate that LERa is a robust and adaptable solution for error-aware task execution in robotics.
+            Large Language Models are increasingly used in robotics for task planning, but their reliance on textual inputs limits their adaptability to real-world changes and failures. To address these challenges, we propose LERa -- \underline{L}ook, \underline{E}xplain, \underline{R}epl\underline{a}n~-- a Visual Language Model-based replanning approach that utilizes visual feedback. Unlike existing methods, LERa requires only a raw RGB image, a natural language instruction, an initial task plan, and failure detection—without additional information such as object detection or predefined conditions that may be unavailable in a given scenario. The replanning process consists of three steps: (i) Look, where LERa generates a scene description and identifies errors; (ii) Explain, where it provides corrective guidance; and (iii) Replan, where it modifies the plan accordingly. LERa is adaptable to various agent architectures and can handle errors from both dynamic scene changes and task execution failures. We evaluate LERa on the newly introduced ALFRED-ChaOS and VirtualHome-ChaOS datasets, achieving a 40\% improvement over baselines in dynamic environments. In tabletop manipulation tasks with a predefined probability of task failure within the PyBullet simulator, LERa improves success rates by up to 67\%. Further experiments, including real-world trials with a tabletop manipulator robot, confirm LERa’s effectiveness in replanning. We demonstrate that LERa is a robust and adaptable solution for error-aware task execution in robotics.
           </p>
         </div>
       </div>
@@ -130,16 +121,17 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <video controls width="100%" style="max-width: 800px;">
+            <source src="./videos/overall.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </div>
     <!--/ Video. -->
   </div>
 </section>
-
-<!-- Таблицы экспериментов -->
+<!-- Experimental tables from LaTeX results section -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -147,65 +139,138 @@
         <h2 class="title is-3">Experimental Results</h2>
         <div class="content has-text-justified">
           <p>Key results from the experiments are shown below:</p>
+          <!-- Main agent/environment table -->
           <table class="table is-striped is-fullwidth">
+            <caption>Replanning results for different agents and environments.</caption>
             <thead>
               <tr>
-                <th>Agent</th>
-                <th>ALFRED-ChaOS (Seen) SR↑</th>
-                <th>VirtualHome-ChaOS SR↑</th>
-                <th>PyBullet (gpt4o) SR↑</th>
+                <th rowspan="2">Agent</th>
+                <th colspan="3">ALFRED-ChaOS (Seen)</th>
+                <th colspan="3">ALFRED-ChaOS (Unseen)</th>
+                <th colspan="3">VirtualHome-ChaOS</th>
+                <th colspan="3">PyBullet (gpt4o)</th>
+                <th colspan="3">PyBullet (Gemini)</th>
+              </tr>
+              <tr>
+                <th>SR↑</th><th>GCR↑</th><th>SRep↑</th>
+                <th>SR↑</th><th>GCR↑</th><th>SRep↑</th>
+                <th>SR↑</th><th>GCR↑</th><th>SRep↑</th>
+                <th>SR↑</th><th>GCR↑</th><th>SRep↑</th>
+                <th>SR↑</th><th>GCR↑</th><th>SRep↑</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Oracle</td>
-                <td>33.04</td>
-                <td>50.00</td>
-                <td>19.00</td>
+                <td>33.04</td><td>50.04</td><td>-</td>
+                <td>31.65</td><td>51.71</td><td>-</td>
+                <td>50.00</td><td>85.75</td><td>-</td>
+                <td>19.00</td><td>32.50</td><td>-</td>
+                <td>19.00</td><td>32.50</td><td>-</td>
               </tr>
               <tr>
-                <td>O-LERa</td>
-                <td><b>49.55</b></td>
-                <td><b>94.06</b></td>
-                <td><b>67.00</b></td>
+                <td>O-Ra</td>
+                <td>34.38</td><td>51.19</td><td>7.69</td>
+                <td>34.17</td><td>54.08</td><td>14.16</td>
+                <td>50.00</td><td>84.33</td><td>0.00</td>
+                <td>53.00</td><td>61.58</td><td>39.13</td>
+                <td>56.00</td><td>73.67</td><td>46.39</td>
+              </tr>
+              <tr>
+                <td>O-ERa</td>
+                <td>40.18</td><td>56.40</td><td>37.08</td>
+                <td>42.81</td><td>61.81</td><td>33.33</td>
+                <td>50.00</td><td>85.92</td><td>0.00</td>
+                <td>75.00</td><td>80.50</td><td>71.24</td>
+                <td>72.00</td><td>78.25</td><td>65.65</td>
+              </tr>
+              <tr>
+                <td>O-LRa</td>
+                <td>34.38</td><td>51.00</td><td>6.73</td>
+                <td>33.45</td><td>53.57</td><td>11.01</td>
+                <td>93.00</td><td>97.04</td><td>87.00</td>
+                <td><b>79.00</b></td><b><td>83.33</td><td>73.71</td></b>
+                <td><b>87.00</b></td><b><td>92.92</td><td>85.81</td></b>
               </tr>
               <tr>
                 <td>Baseline</td>
-                <td>33.04</td>
-                <td>52.00</td>
-                <td>67.00</td>
+                <td>33.04</td><td>50.15</td><td>3.15</td>
+                <td>32.01</td><td>51.89</td><td>0.98</td>
+                <td>52.00</td><td>85.91</td><td>4.10</td>
+                <td>67.00</td><td>74.92</td><td>59.06</td>
+                <td>82.00</td><td>89.08</td><td>78.90</td>
+              </tr>
+              <tr>
+                <td>O-LERa</td>
+                <td><b>49.55</b></td><b><td>64.55</td><td>73.39</td></b>
+                <td><b>53.60</b></td><b><td>70.23</td><td>74.57</td></b>
+                <td><b>94.06</b></td><b><td>98.17</td><td>95.03</td></b>
+                <td>67.00</td><td>72.67</td><td>61.29</td>
+                <td>86.00</td><td>89.17</td><td>84.83</td>
               </tr>
             </tbody>
           </table>
           <br>
+          <!-- VLM comparison table -->
           <table class="table is-striped is-fullwidth">
-            <caption>Performance of LERa with Different VLMs Across Environments</caption>
+            <caption>Performance of LERa with different VLMs across different environments.</caption>
             <thead>
               <tr>
-                <th>VLM</th>
-                <th>ALFRED-ChaOS (Seen) SR↑</th>
-                <th>VirtualHome-ChaOS SR↑</th>
-                <th>PyBullet SR↑</th>
+                <th rowspan="2">VLM</th>
+                <th colspan="3">ALFRED-ChaOS (Seen)</th>
+                <th colspan="3">ALFRED-ChaOS (Unseen)</th>
+                <th colspan="3">VirtualHome-ChaOS</th>
+                <th colspan="3">PyBullet</th>
+              </tr>
+              <tr>
+                <th>SR↑</th><th>GCR↑</th><th>SRep↑</th>
+                <th>SR↑</th><th>GCR↑</th><th>SRep↑</th>
+                <th>SR↑</th><th>GCR↑</th><th>SRep↑</th>
+                <th>SR↑</th><th>GCR↑</th><th>SRep↑</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>LLaMA-3.2-11b</td>
-                <td>35.71</td>
-                <td>52.00</td>
-                <td>34.00</td>
+                <td>35.71</td><td>52.01</td><td>11.11</td>
+                <td>33.81</td><td>53.81</td><td>9.38</td>
+                <td>52.00</td><td>74.17</td><td>20.00</td>
+                <td>34.00</td><td>45.92</td><td>20.54</td>
+              </tr>
+              <tr>
+                <td>LLaMA-3.2-90b</td>
+                <td>38.84</td><td>54.80</td><td>30.58</td>
+                <td>36.33</td><td>55.97</td><td>25.93</td>
+                <td>54.00</td><td>84.25</td><td>8.00</td>
+                <td>64.00</td><td>71.08</td><td>57.68</td>
               </tr>
               <tr>
                 <td>Gemini-Flash-1.5</td>
-                <td>46.43</td>
-                <td>59.40</td>
-                <td>55.00</td>
+                <td>46.43</td><td>61.61</td><td>67.22</td>
+                <td>51.44</td><td>68.38</td><td>67.71</td>
+                <td>59.40</td><td>72.51</td><td>24.00</td>
+                <td>55.00</td><td>66.33</td><td>46.75</td>
+              </tr>
+              <tr>
+                <td>Gemini-Pro-1.5</td>
+                <td>42.19</td><td>56.51</td><td>56.16</td>
+                <td>46.40</td><td>63.85</td><td>55.64</td>
+                <td>65.35</td><td>87.87</td><td>41.58</td>
+                <td><b>86.00</b></td><b><td>89.17</td><td>84.83</td></b>
+              </tr>
+              <tr>
+                <td>gpt-4o-mini</td>
+                <td>43.75</td><td>59.71</td><td>46.81</td>
+                <td>46.04</td><td>63.97</td><td>49.12</td>
+                <td>74.25</td><td>82.50</td><td>56.25</td>
+                <td>48.00</td><td>62.92</td><td>37.75</td>
               </tr>
               <tr>
                 <td>gpt-4o</td>
-                <td><b>49.55</b></td>
-                <td><b>94.06</b></td>
-                <td><b>67.00</b></td>
+                <td><b>49.55</b></td><b><td>64.55</td><td>73.39</td></b>
+                <td><b>53.60</b></td><b><td>70.23</td><td>74.57</td></b>
+                <td><b>94.06</b></td><b><td>98.17</td><td>95.03</td></b>
+                <td>67.00</td><td>72.67</td><td>61.29</td>
               </tr>
             </tbody>
           </table>
@@ -242,15 +307,10 @@
       <div class="column is-8">
         <div class="content">
           <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            The source code for the current website template can be found at: <a href="https://github.com/nerfies/nerfies.github.io">https://github.com/nerfies/nerfies.github.io</a>.
           </p>
           <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.<br>
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
         </div>
       </div>
