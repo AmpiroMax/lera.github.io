@@ -1,55 +1,262 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>LERa: Replanning with Visual Feedback in Instruction Following</title>
+  <meta charset="utf-8">
+  <meta name="description" content="LERa: Replanning with Visual Feedback in Instruction Following.">
+  <meta name="keywords" content="LERa, Robotics, VLM, Replanning, IROS2025">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="LERa: Replanning with Visual Feedback in Instruction Following">
-  <meta property="og:description" content="Visual Language Model-based replanning approach for robotics.">
-  <link rel="stylesheet" href="style.css">
-  <!-- Можно взять style.css прямо из шаблона nerfies.github.io -->
+  <title>LERa: Replanning with Visual Feedback in Instruction Following</title>
+
+  <!-- Внешние стили и скрипты как в шаблоне nerfies.github.io -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>LERa: Replanning with Visual Feedback in Instruction Following</h1>
-    <div class="authors">
-      Svyatoslav Pchelintsev<sup>*</sup>, Maxim Patratskiy<sup>*</sup>, Anatoly Onishchenko, Alexandr Korchemnyi, <br>
-      Aleksandr Medvedev, Uliana Vinogradova, Ilya Galuzinsky, Aleksey Postnikov, <br>
-      Alexey K. Kovalev, Aleksandr I. Panov
-    </div>
-    <div class="affiliations">
-      <sup>*</sup>Equal contribution. 1MIPT, 2Sberbank Robotics, 3AIRI
-    </div>
-    <div class="links">
-      <a class="button" href="IROS2025___Extra_LERa%20(3).pdf" target="_blank">[PDF]</a>
-      <a class="button" href="https://github.com/YOUR_REPO" target="_blank">[Code]</a>
-      <a class="button" href="https://youtu.be/DEMO_VIDEO" target="_blank">[Video]</a>
-      <a class="button" href="#citation">[Citation]</a>
-    </div>
-    <div class="teaser">
-      <img src="images/your_main_figure.png" alt="LERa Overview">
-    </div>
-    <h2>Abstract</h2>
-    <p>
-      Large Language Models are increasingly used in robotics for task planning, but their reliance on textual inputs limits their adaptability to real-world changes and failures...
-    </p>
 
-    <h2>Introduction</h2>
-    <p>
-      <!-- Сюда вставить вводный текст -->
-    </p>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</nav>
 
-    <!-- ... Остальные секции ... -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LERa: Replanning with Visual Feedback in Instruction Following</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Svyatoslav Pchelintsev<sup>1*</sup>,</span>
+            <span class="author-block">Maxim Patratskiy<sup>1*</sup>,</span>
+            <span class="author-block">Anatoly Onishchenko<sup>1</sup>,</span>
+            <span class="author-block">Alexandr Korchemnyi<sup>1</sup>,</span>
+            <span class="author-block">Aleksandr Medvedev<sup>2</sup>,</span>
+            <span class="author-block">Uliana Vinogradova<sup>2</sup>,</span>
+            <span class="author-block">Ilya Galuzinsky<sup>2</sup>,</span>
+            <span class="author-block">Aleksey Postnikov<sup>2</sup>,</span>
+            <span class="author-block">Alexey K. Kovalev<sup>1,3</sup>,</span>
+            <span class="author-block">Aleksandr I. Panov<sup>1,3</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>MIPT, Dolgoprudny, Russia,</span>
+            <span class="author-block"><sup>2</sup>Sberbank Robotics Center, Moscow, Russia,</span>
+            <span class="author-block"><sup>3</sup>AIRI, Moscow, Russia</span>
+            <span class="author-block"><br>*Equal contribution</span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="IROS2025___Extra_LERa%20(3).pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/YOUR_REPO" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=YOUR_VIDEO" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <h2 id="citation">Citation</h2>
-    <pre>
-@inproceedings{patratskiy2025lera,
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4" type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">LERa</span> is a robust and adaptable solution for error-aware task execution in robotics.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Large Language Models are increasingly used in robotics for task planning, but their reliance on textual inputs limits their adaptability to real-world changes and failures. To address these challenges, we propose LERa – Look, Explain, Replan – a Visual Language Model-based replanning approach that utilizes visual feedback. Unlike existing methods, LERa requires only a raw RGB image, a natural language instruction, an initial task plan, and failure detection—without additional information such as object detection or predefined conditions that may be unavailable in a given scenario. The replanning process consists of three steps: (i) Look, where LERa generates a scene description and identifies errors; (ii) Explain, where it provides corrective guidance; and (iii) Replan, where it modifies the plan accordingly. LERa is adaptable to various agent architectures and can handle errors from both dynamic scene changes and task execution failures. We evaluate LERa on the newly introduced ALFRED-ChaOS and VirtualHome-ChaOS datasets, achieving a 40% improvement over baselines in dynamic environments. In tabletop manipulation tasks with a predefined probability of task failure within the PyBullet simulator, LERa improves success rates by up to 67%. Further experiments, including real-world trials with a tabletop manipulator robot, confirm LERa’s effectiveness in replanning. We demonstrate that LERa is a robust and adaptable solution for error-aware task execution in robotics.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <!-- Video (оставлен один блок) -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Video. -->
+  </div>
+</section>
+
+<!-- Таблицы экспериментов -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Experimental Results</h2>
+        <div class="content has-text-justified">
+          <p>Key results from the experiments are shown below:</p>
+          <table class="table is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th>Agent</th>
+                <th>ALFRED-ChaOS (Seen) SR↑</th>
+                <th>VirtualHome-ChaOS SR↑</th>
+                <th>PyBullet (gpt4o) SR↑</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Oracle</td>
+                <td>33.04</td>
+                <td>50.00</td>
+                <td>19.00</td>
+              </tr>
+              <tr>
+                <td>O-LERa</td>
+                <td><b>49.55</b></td>
+                <td><b>94.06</b></td>
+                <td><b>67.00</b></td>
+              </tr>
+              <tr>
+                <td>Baseline</td>
+                <td>33.04</td>
+                <td>52.00</td>
+                <td>67.00</td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <table class="table is-striped is-fullwidth">
+            <caption>Performance of LERa with Different VLMs Across Environments</caption>
+            <thead>
+              <tr>
+                <th>VLM</th>
+                <th>ALFRED-ChaOS (Seen) SR↑</th>
+                <th>VirtualHome-ChaOS SR↑</th>
+                <th>PyBullet SR↑</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>LLaMA-3.2-11b</td>
+                <td>35.71</td>
+                <td>52.00</td>
+                <td>34.00</td>
+              </tr>
+              <tr>
+                <td>Gemini-Flash-1.5</td>
+                <td>46.43</td>
+                <td>59.40</td>
+                <td>55.00</td>
+              </tr>
+              <tr>
+                <td>gpt-4o</td>
+                <td><b>49.55</b></td>
+                <td><b>94.06</b></td>
+                <td><b>67.00</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{patratskiy2025lera,
   title={LERa: Replanning with Visual Feedback in Instruction Following},
   author={Pchelintsev, Svyatoslav and Patratskiy, Maxim and Onishchenko, Anatoly and Korchemnyi, Alexandr and Medvedev, Aleksandr and Vinogradova, Uliana and Galuzinsky, Ilya and Postnikov, Aleksey and Kovalev, Alexey K. and Panov, Aleksandr I.},
   booktitle={IROS 2025},
   year={2025}
 }
-    </pre>
+    </code></pre>
   </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="IROS2025___Extra_LERa%20(3).pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/YOUR_REPO" class="external-link">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.<br>
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
