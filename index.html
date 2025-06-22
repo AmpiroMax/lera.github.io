@@ -20,36 +20,46 @@
   <link rel="icon" href="./static/images/favicon.svg">
 
   <style>
-    /* Center tables and fix width issues */
+    /* Unified table styling - fix all issues */
     .table-container {
-      display: flex;
-      justify-content: center;
       width: 100%;
-      margin: 1rem 0;
+      margin: 2rem 0;
+      overflow-x: auto;
     }
     
     .table-container table {
       width: 100%;
-      font-size: 1rem; /* Ensure consistent font size */
+      font-size: 1rem;
       border-collapse: collapse;
+      margin: 0;
+      min-width: 100%;
     }
     
-    /* Ensure tables are fully visible */
+    /* Ensure all tables have consistent styling */
     .table {
       font-size: 1rem !important;
+      width: 100% !important;
+      border-collapse: collapse !important;
+    }
+    
+    /* Remove any Bulma classes that might interfere */
+    .is-fullwidth {
       width: 100% !important;
       max-width: none !important;
     }
     
-    /* Responsive table handling */
+    /* Ensure table cells are properly sized */
+    .table th,
+    .table td {
+      padding: 0.5rem !important;
+      text-align: center !important;
+      border: 1px solid #dbdbdb !important;
+    }
+    
+    /* Responsive handling */
     @media (max-width: 768px) {
       .table-container {
-        overflow-x: auto;
-        margin: 0.5rem 0;
-      }
-      
-      .table-container table {
-        min-width: 800px; /* Ensure minimum width for readability */
+        margin: 1rem 0;
       }
     }
   </style>
@@ -136,7 +146,7 @@
       <!-- Illustration of LERa example (figure) -->
       <div class="has-text-centered" style="margin-top: 2rem;">
         <!-- The image path should be relative to the site root for web usage -->
-        <img src="images/fig2_example_cr.pdf" alt="LERa Example Figure" style="max-width: 100%; height: auto;">
+        <img src="images/fig2_example_cr.png" alt="LERa Example Figure" style="max-width: 100%; height: auto;">
         <!-- If PDF is not supported by browser, consider converting to PNG/JPG for web -->
       </div>
     </div>
@@ -179,7 +189,6 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Experimental Results</h2>
         <div class="content has-text-justified">
-          <p>Key results from the experiments are shown below:</p>
           <!-- Main agent/environment table -->
           <div class="table-container">
             <table class="table is-striped is-fullwidth">
@@ -321,103 +330,101 @@
           </div>
           
           <!-- Additional table: The impact of the imperfect checker on replanning -->
-          <div style="margin-top:2em;">
-            <div class="table-container">
-              <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                <caption style="caption-side: top; text-align: left; font-weight: bold;">
-                  The impact of the imperfect checker on replanning.
-                </caption>
-                <thead>
-                  <tr>
-                    <th rowspan="2">Agent</th>
-                    <th colspan="3">Seen split</th>
-                    <th colspan="3">Unseen split</th>
-                  </tr>
-                  <tr>
-                    <th>SR↑</th>
-                    <th>GSR↑</th>
-                    <th>SRep↑</th>
-                    <th>SR↑</th>
-                    <th>GSR↑</th>
-                    <th>SRep↑</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>O-15</td>
-                    <td>12.50</td>
-                    <td>35.90</td>
-                    <td>-</td>
-                    <td>12.95</td>
-                    <td>39.75</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>O-10</td>
-                    <td>17.41</td>
-                    <td>40.89</td>
-                    <td>-</td>
-                    <td>17.63</td>
-                    <td>43.38</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>O-05</td>
-                    <td>24.55</td>
-                    <td>45.01</td>
-                    <td>-</td>
-                    <td>24.82</td>
-                    <td>47.54</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>O-FC</td>
-                    <td>33.04</td>
-                    <td>50.04</td>
-                    <td>-</td>
-                    <td>31.65</td>
-                    <td>51.71</td>
-                    <td>-</td>
-                  </tr>
-                  <tr>
-                    <td>O-L-15</td>
-                    <td>22.32</td>
-                    <td>44.42</td>
-                    <td>35.48</td>
-                    <td>20.50</td>
-                    <td>45.29</td>
-                    <td>25.00</td>
-                  </tr>
-                  <tr>
-                    <td>O-L-10</td>
-                    <td>25.45</td>
-                    <td>46.91</td>
-                    <td>47.32</td>
-                    <td>25.18</td>
-                    <td>48.95</td>
-                    <td>28.70</td>
-                  </tr>
-                  <tr>
-                    <td>O-L-05</td>
-                    <td>34.38</td>
-                    <td>52.57</td>
-                    <td><b>54.16</b></td>
-                    <td>35.97</td>
-                    <td>55.76</td>
-                    <td>35.43</td>
-                  </tr>
-                  <tr>
-                    <td>O-L-FC</td>
-                    <td><b>44.64</b></td>
-                    <td><b>59.00</b></td>
-                    <td>52.83</td>
-                    <td><b>46.76</b></td>
-                    <td><b>63.46</b></td>
-                    <td><b>49.34</b></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="table-container">
+            <table class="table is-striped is-fullwidth">
+              <caption style="caption-side: top; text-align: left; font-weight: bold;">
+                The impact of the imperfect checker on replanning.
+              </caption>
+              <thead>
+                <tr>
+                  <th rowspan="2">Agent</th>
+                  <th colspan="3">Seen split</th>
+                  <th colspan="3">Unseen split</th>
+                </tr>
+                <tr>
+                  <th>SR↑</th>
+                  <th>GSR↑</th>
+                  <th>SRep↑</th>
+                  <th>SR↑</th>
+                  <th>GSR↑</th>
+                  <th>SRep↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>O-15</td>
+                  <td>12.50</td>
+                  <td>35.90</td>
+                  <td>-</td>
+                  <td>12.95</td>
+                  <td>39.75</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>O-10</td>
+                  <td>17.41</td>
+                  <td>40.89</td>
+                  <td>-</td>
+                  <td>17.63</td>
+                  <td>43.38</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>O-05</td>
+                  <td>24.55</td>
+                  <td>45.01</td>
+                  <td>-</td>
+                  <td>24.82</td>
+                  <td>47.54</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>O-FC</td>
+                  <td>33.04</td>
+                  <td>50.04</td>
+                  <td>-</td>
+                  <td>31.65</td>
+                  <td>51.71</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>O-L-15</td>
+                  <td>22.32</td>
+                  <td>44.42</td>
+                  <td>35.48</td>
+                  <td>20.50</td>
+                  <td>45.29</td>
+                  <td>25.00</td>
+                </tr>
+                <tr>
+                  <td>O-L-10</td>
+                  <td>25.45</td>
+                  <td>46.91</td>
+                  <td>47.32</td>
+                  <td>25.18</td>
+                  <td>48.95</td>
+                  <td>28.70</td>
+                </tr>
+                <tr>
+                  <td>O-L-05</td>
+                  <td>34.38</td>
+                  <td>52.57</td>
+                  <td><b>54.16</b></td>
+                  <td>35.97</td>
+                  <td>55.76</td>
+                  <td>35.43</td>
+                </tr>
+                <tr>
+                  <td>O-L-FC</td>
+                  <td><b>44.64</b></td>
+                  <td><b>59.00</b></td>
+                  <td>52.83</td>
+                  <td><b>46.76</b></td>
+                  <td><b>63.46</b></td>
+                  <td><b>49.34</b></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           
         </div>
